@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resgistrarse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <main class="container">
+        <section class="form-container">
+            <h2 class="titulo-artistico">Únete a nuestra Comunidad</h2>
+            <form id="registro-form" class="registro-form">
+
+                <div class="form-group">
+                    <label>Nombre Completo (Requerido):</label>
+                    <input type="text" id="nombre" maxlength="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label>RUT (Sin puntos ni guion):</label>
+                    <input type="text" id="run" minlength="7" maxlength="9" placeholder="12345678K" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Correo Electrónico:</label>
+                    <input type="email" id="correo" placeholder="ejemplo@duoc.cl" required>
+                    <small>Válido: @duoc.cl, @profesor.duoc.cl, @gmail.com</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha-nac" required>
+                    <small>Mayores de 50 años obtienen 50% de descuento.</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Código de Descuento:</label>
+                    <input type="text" id="codigo-promocional" placeholder="¿Tienes un código?">
+                </div>
+
+                <div class="form-group">
+                    <label>Dirección:</label>
+                    <input type="text" id="direccion" maxlength="300" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña (4-10 caracteres):</label>
+                    <input type="password" id="password" required>
+                </div>
+
+                <button type="submit" class="btn-chocolate">Registrarme</button>
+            </form>
+            <div id="mensaje-validacion"></div>
+        </section>
+    </main>
+</body>
+
+</html>

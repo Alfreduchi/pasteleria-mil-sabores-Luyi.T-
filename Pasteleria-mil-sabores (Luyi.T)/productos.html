@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos de Pasteleria</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap">
+    <link rel="stylesheet" href="css/estilo-productos.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Mil Sabores" width="50">
+                <h1>Pasteleria Mil Sabores</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="productos.html" class="active">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="user-actions">
+                <a href="login.html">Iniciar sesión</a> |
+                <a href="registro.html">Registrar usuario</a>
+                <div class="cart-icon">
+                    <a href="carrito.html" style="text-decoration:none; color:inherit;">
+                        <span id="cart-count">🛒 Cart (0)</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="productos-header">
+            <h2>Catálogo de Especialidades</h2>
+        </section>
+
+        <section class="filtros">
+            <label for="filtro-categoria">Filtrar por categoría:</label>
+            <select id="filtro-categoria" onchange="filtrarProductos()">
+                <option value="todos">Todas las categorías</option>
+                <option value="Tortas Cuadradas">Tortas Cuadradas</option>
+                <option value="Tortas Circulares">Tortas Circulares</option>
+                <option value="Postres Individuales">Postres Individuales</option>
+                <option value="Productos Sin Azúcar">Productos Sin Azúcar</option>
+                <option value="Pastelería Tradicional">Pastelería Tradicional</option>
+                <option value="Productos Sin Gluten">Productos Sin Gluten</option>
+                <option value="Productos Veganos">Productos Veganos</option>
+                <option value="Tortas Especiales">Tortas Especiales</option>
+            </select>
+        </section>
+
+        <div id="lista-productos"></div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h4>Pastelería Mil Sabores</h4>
+                <p>Celebrando 50 años de dulzura[cite: 8].</p>
+            </div>
+            <div class="newsletter">
+                <h4>Suscríbete</h4>
+                <input type="email" id="newsletter-email" placeholder="Tu correo electrónico">
+                <button class="btn-chocolate">Unirse</button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/productos.js"></script>
+</body>
+
+</html>

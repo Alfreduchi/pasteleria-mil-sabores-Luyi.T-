@@ -1,0 +1,117 @@
+/* Importación de fuentes (Lato y Pacifico) */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
+
+/* Configuración General */
+body {
+    background-color: #FFF5E1; /* Crema Pastel: ambiente cálido [cite: 71] */
+    color: #5D4037;            /* Marrón Oscuro: texto principal con contraste  */
+    font-family: 'Lato', sans-serif; /* Fuente moderna para texto general [cite: 76] */
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezados */
+h1, h2, h3, .logo h1 {
+    font-family: 'Pacifico', cursive; /* Toque artístico para títulos  */
+    color: #8B4513;                  /* Chocolate para resaltar  */
+}
+
+/* Navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #ffffff; /* Fondo blanco para limpieza visual */
+    border-bottom: 2px solid #FFC0CB; /* Línea Rosa Suave  */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #5D4037;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #FFC0CB; /* Rosa Suave al pasar el mouse  */
+}
+
+/* Sección Hero (Bienvenida) */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 60px 50px;
+    background-color: #FFF5E1; /* Consistente con el fondo principal [cite: 71] */
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+}
+
+.hero-image img {
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 0px #FFC0CB; /* Sombra Rosa Suave decorativa */
+}
+
+/* Botones */
+.btn-chocolate {
+    display: inline-block;
+    background-color: #8B4513; /* Color Chocolate  */
+    color: #FFF5E1;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-chocolate:hover {
+    background-color: #FFC0CB; /* Cambia a Rosa Suave  */
+    color: #5D4037;
+}
+
+/* Grid de Productos */
+.featured-products {
+    padding: 50px;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Footer */
+footer {
+    background-color: #5D4037; /* Marrón Oscuro para el fondo del pie  */
+    color: #B0BEC5;            /* Gris Claro para texto secundario [cite: 86] */
+    padding: 40px 50px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+footer h4 {
+    color: #FFC0CB; /* Títulos del footer en Rosa Suave  */
+    font-family: 'Pacifico', cursive;
+}

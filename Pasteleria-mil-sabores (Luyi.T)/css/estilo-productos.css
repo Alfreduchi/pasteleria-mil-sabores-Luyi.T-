@@ -1,0 +1,35 @@
+/* Espaciado para las secciones de categorías */
+.categoria-section {
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+/* Estilo para los títulos de categoría (Pacifico) */
+.titulo-categoria {
+    font-family: 'Pacifico', cursive;
+    color: #8B4513; /* Chocolate */
+    font-size: 2rem;
+    border-bottom: 2px solid #FFC0CB; /* Rosa Suave */
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+/* Ajuste del Grid para que se vea bien en productos.html */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Estilo de la tarjeta de producto */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
