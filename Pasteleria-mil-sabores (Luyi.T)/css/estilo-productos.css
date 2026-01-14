@@ -1,35 +1,70 @@
-/* Espaciado para las secciones de categorías */
-.categoria-section {
-    margin-bottom: 50px;
-    padding: 20px;
-}
-
-/* Estilo para los títulos de categoría (Pacifico) */
-.titulo-categoria {
-    font-family: 'Pacifico', cursive;
-    color: #8B4513; /* Chocolate */
-    font-size: 2rem;
-    border-bottom: 2px solid #FFC0CB; /* Rosa Suave */
-    display: inline-block;
-    margin-bottom: 25px;
-}
-
-/* Ajuste del Grid para que se vea bien en productos.html */
+/* Contenedor del listado para asegurar alineación (Mockup Fig. 8) */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Alineación automática  */
+    gap: 30px; /* Espacio uniforme entre marcos [cite: 219] */
+    padding: 20px 0;
 }
 
-/* Estilo de la tarjeta de producto */
+/* El Marco de la Carta */
 .product-card {
     background-color: #ffffff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    border: 2px solid #FFC0CB; /* Marco en Rosa Suave para dulzura  */
+    border-radius: 15px; /* Bordes redondeados para un toque artesanal */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Alinea contenido verticalmente */
+    justify-content: space-between; /* Mantiene el botón siempre al final */
+    height: 100%; /* Asegura que todas las cartas midan lo mismo */
+    box-shadow: 6px 6px 0px rgba(139, 69, 19, 0.1); /* Sombra Chocolate sutil  */
+    transition: all 0.3s ease;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    border-color: #8B4513; /* El marco cambia a Chocolate al pasar el mouse  */
+    transform: scale(1.02);
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para que rellene el espacio sin deformarse */
+    transition: transform 0.5s;
+}
+
+.product-card:hover img {
+    transform: scale(1.1); /* Efecto de zoom en la imagen */
+}
+
+/* Información de texto alineada */
+.product-info h4 {
+    font-family: 'Pacifico', cursive; /* Toque artístico [cite: 79] */
+    color: #8B4513;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.descripcion-corta {
+    font-family: 'Lato', sans-serif;
+    color: #5D4037; /* Marrón Oscuro [cite: 83] */
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* 1. El contenedor (marco) de la imagen */
+.product-image-container {
+    width: 100%;       /* Ocupa todo el ancho de la tarjeta */
+    height: 200px;      /* Altura fija obligatoria para todas */
+    overflow: hidden;   /* Esconde lo que sobre de la imagen */
+    border-radius: 10px;/* Bordes redondeados según el diseño */
+    background-color: #f8f8f8; /* Fondo neutro por si la imagen demora en cargar */
+}
+
+/* 2. La imagen dentro del contenedor */
+.product-image-container img {
+    width: 100%;        /* Se estira al ancho del contenedor */
+    height: 100%;       /* Se estira al alto del contenedor */
+    object-fit: cover;  /* ¡CLAVE! Recorta la imagen para que rellene el espacio sin estirarse feo */
+    object-position: center; /* Centra el recorte en la parte más importante del pastel */
 }

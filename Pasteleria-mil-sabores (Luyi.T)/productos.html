@@ -5,33 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos de Pasteleria</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap">
     <link rel="stylesheet" href="css/estilo-productos.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilo-productos.css">
 </head>
 
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="img/logo.png" alt="Logo Mil Sabores" width="50">
-                <h1>Pasteleria Mil Sabores</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="productos.html" class="active">Productos</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <div class="user-actions">
-                <a href="login.html">Iniciar sesión</a> |
-                <a href="registro.html">Registrar usuario</a>
-                <div class="cart-icon">
-                    <a href="carrito.html" style="text-decoration:none; color:inherit;">
-                        <span id="cart-count">🛒 Cart (0)</span>
-                    </a>
+<body class="bg-crema">
+   <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="img/logo.png" alt="Logo Mil Sabores" width="50" class="me-2">
+                    <h1 class="titulo-brand mb-0">Mil Sabores</h1>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    </ul>
+
+                    <div class="d-flex align-items-center user-menu">
+                        <a href="login.html" class="nav-link me-3">Iniciar sesión</a>
+                        <a href="registro.html" class="nav-link active fw-bold me-3">Registrar usuario</a>
+                        <div class="cart-icon">
+                            <a href="carrito.html" class="text-decoration-none">
+                                <span id="cart-count">🛒 Cart (0)</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -75,6 +86,8 @@
     </footer>
 
     <script src="js/productos.js"></script>
+    <script src="js/region-comunas.js"></script>
+    <script src="js/registro.js"></script>                 
 </body>
 
 </html>

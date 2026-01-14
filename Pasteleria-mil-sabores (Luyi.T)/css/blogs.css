@@ -1,0 +1,21 @@
+/* Ajustes para la sección de Blogs */
+.card {
+    transition: transform 0.3s;
+    border-radius: 15px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.order-md-1 {
+    order: 1;
+}
+
+.order-md-2 {
+    order: 2;
+}

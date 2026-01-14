@@ -1,0 +1,30 @@
+/* Colores base solicitados */
+.bg-crema {
+    background-color: #FFF5E1 !important; /* Fondo Crema Pastel [cite: 71] */
+}
+
+.titulo-artistico {
+    font-family: 'Pacifico', cursive; /* Fuente de encabezado [cite: 79] */
+    color: #8B4513; /* Color Chocolate [cite: 73] */
+}
+
+label {
+    color: #5D4037; /* Marrón Oscuro para el texto principal [cite: 83] */
+}
+
+.btn-chocolate {
+    background-color: #8B4513 !important; /* Chocolate [cite: 73] */
+    color: #FFF5E1 !important;
+    font-family: 'Lato', sans-serif;
+    border: none;
+}
+
+.btn-chocolate:hover {
+    background-color: #FFC0CB !important; /* Rosa Suave al pasar el mouse [cite: 73] */
+    color: #5D4037 !important;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #FFC0CB;
+    box-shadow: 0 0 0 0.25rem rgba(255, 192, 203, 0.25);
+}

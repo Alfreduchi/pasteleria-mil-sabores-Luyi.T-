@@ -2,65 +2,130 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resgistrarse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/estilo-registrarse.css">
+
 </head>
 
-<body>
+<body class="bg-crema">
+
     <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="img/logo.png" alt="Logo Mil Sabores" width="50" class="me-2">
+                    <h1 class="titulo-brand mb-0">Mil Sabores</h1>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    </ul>
+
+                    <div class="d-flex align-items-center user-menu">
+                        <a href="login.html" class="nav-link me-3">Iniciar sesión</a>
+                        <a href="registro.html" class="nav-link active fw-bold me-3">Registrar usuario</a>
+                        <div class="cart-icon">
+                            <a href="carrito.html" class="text-decoration-none">
+                                <span id="cart-count">🛒 Cart (0)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <main class="container">
-        <section class="form-container">
-            <h2 class="titulo-artistico">Únete a nuestra Comunidad</h2>
-            <form id="registro-form" class="registro-form">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 card shadow p-4 border-0">
+                <h2 class="text-center titulo-artistico mb-4">Registro de usuario</h2>
 
-                <div class="form-group">
-                    <label>Nombre Completo (Requerido):</label>
-                    <input type="text" id="nombre" maxlength="100" required>
-                </div>
+                <form id="registro-form">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">NOMBRE COMPLETO</label>
+                        <input type="text" id="nombre" class="form-control" required maxlength="50" />
+                    </div>
 
-                <div class="form-group">
-                    <label>RUT (Sin puntos ni guion):</label>
-                    <input type="text" id="run" minlength="7" maxlength="9" placeholder="12345678K" required>
-                </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">CORREO</label>
+                            <input type="email" id="correo" class="form-control" required maxlength="100" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">CONFIRMAR CORREO</label>
+                            <input type="email" id="confirmar-correo" class="form-control" required />
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label>Correo Electrónico:</label>
-                    <input type="email" id="correo" placeholder="ejemplo@duoc.cl" required>
-                    <small>Válido: @duoc.cl, @profesor.duoc.cl, @gmail.com</small>
-                </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">CONTRASEÑA</label>
+                            <input type="password" id="password" class="form-control" required minlength="4"
+                                maxlength="10" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">CONFIRMAR CONTRASEÑA</label>
+                            <input type="password" id="confirmar-password" class="form-control" required />
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label>Fecha de Nacimiento:</label>
-                    <input type="date" id="fecha-nac" required>
-                    <small>Mayores de 50 años obtienen 50% de descuento.</small>
-                </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">TELÉFONO (opcional)</label>
+                        <input type="text" id="telefono" class="form-control" placeholder="+569..." />
+                    </div>
 
-                <div class="form-group">
-                    <label>Código de Descuento:</label>
-                    <input type="text" id="codigo-promocional" placeholder="¿Tienes un código?">
-                </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">FECHA DE NACIMIENTO</label>
+                        <input type="date" id="fecha-nac" class="form-control" required />
+                    </div>
 
-                <div class="form-group">
-                    <label>Dirección:</label>
-                    <input type="text" id="direccion" maxlength="300" required>
-                </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">REGIÓN</label>
+                            <select id="region" class="form-select" required>
+                                <option value="">-- Seleccione la región --</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">COMUNA</label>
+                            <select id="comuna" class="form-select" required disabled>
+                                <option value="">-- Seleccione la comuna --</option>
+                            </select>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label>Contraseña (4-10 caracteres):</label>
-                    <input type="password" id="password" required>
-                </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">CÓDIGO PROMOCIONAL</label>
+                        <input type="text" id="codigo-promocional" class="form-control" placeholder="Ej: FELICES50" />
+                    </div>
 
-                <button type="submit" class="btn-chocolate">Registrarme</button>
-            </form>
-            <div id="mensaje-validacion"></div>
-        </section>
-    </main>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-chocolate px-5 py-2">
+                            REGISTRAR
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/registro.js"></script>
+    <script src="js/region-comunas.js"></script>
 </body>
 
 </html>
