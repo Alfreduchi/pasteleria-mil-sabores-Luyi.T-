@@ -1,70 +1,59 @@
-/* Contenedor del listado para asegurar alineación (Mockup Fig. 8) */
-.product-grid {
+/* Grid Principal de Catálogo */
+.productos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Alineación automática  */
-    gap: 30px; /* Espacio uniforme entre marcos [cite: 219] */
-    padding: 20px 0;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+    margin-bottom: 50px;
 }
 
-/* El Marco de la Carta */
+/* Tarjeta de Producto */
 .product-card {
     background-color: #ffffff;
-    border: 2px solid #FFC0CB; /* Marco en Rosa Suave para dulzura  */
-    border-radius: 15px; /* Bordes redondeados para un toque artesanal */
+    border: 2px solid #FFC0CB;
+    border-radius: 15px;
     padding: 20px;
-    display: flex;
-    flex-direction: column; /* Alinea contenido verticalmente */
-    justify-content: space-between; /* Mantiene el botón siempre al final */
-    height: 100%; /* Asegura que todas las cartas midan lo mismo */
-    box-shadow: 6px 6px 0px rgba(139, 69, 19, 0.1); /* Sombra Chocolate sutil  */
+    text-align: center;
+    height: 100%;
     transition: all 0.3s ease;
 }
 
 .product-card:hover {
-    border-color: #8B4513; /* El marco cambia a Chocolate al pasar el mouse  */
-    transform: scale(1.02);
+    transform: translateY(-8px);
+    border-color: #8B4513;
+    box-shadow: 0px 10px 20px rgba(139, 69, 19, 0.15);
 }
 
-.product-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Recorta la imagen para que rellene el espacio sin deformarse */
-    transition: transform 0.5s;
-}
-
-.product-card:hover img {
-    transform: scale(1.1); /* Efecto de zoom en la imagen */
-}
-
-/* Información de texto alineada */
-.product-info h4 {
-    font-family: 'Pacifico', cursive; /* Toque artístico [cite: 79] */
+.product-card h4 {
+    font-family: 'Pacifico', cursive;
     color: #8B4513;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
 }
 
-.descripcion-corta {
-    font-family: 'Lato', sans-serif;
-    color: #5D4037; /* Marrón Oscuro [cite: 83] */
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 15px;
+/* Filtros y Cabecera */
+.filtros {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #FFC0CB;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* 1. El contenedor (marco) de la imagen */
-.product-image-container {
-    width: 100%;       /* Ocupa todo el ancho de la tarjeta */
-    height: 200px;      /* Altura fija obligatoria para todas */
-    overflow: hidden;   /* Esconde lo que sobre de la imagen */
-    border-radius: 10px;/* Bordes redondeados según el diseño */
-    background-color: #f8f8f8; /* Fondo neutro por si la imagen demora en cargar */
+/* Sección de Beneficios (Relleno) */
+.info-relleno .beneficio-card {
+    background-color: #ffffff !important;
+    border: 2px solid #FFC0CB;
+    border-radius: 15px;
+    padding: 30px 15px;
+    flex: 1;
+    text-align: center;
+    transition: 0.3s;
 }
 
-/* 2. La imagen dentro del contenedor */
-.product-image-container img {
-    width: 100%;        /* Se estira al ancho del contenedor */
-    height: 100%;       /* Se estira al alto del contenedor */
-    object-fit: cover;  /* ¡CLAVE! Recorta la imagen para que rellene el espacio sin estirarse feo */
-    object-position: center; /* Centra el recorte en la parte más importante del pastel */
+.info-relleno .beneficio-card:hover {
+    transform: translateY(-5px);
+    border-color: #8B4513;
 }

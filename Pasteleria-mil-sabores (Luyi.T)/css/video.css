@@ -1,0 +1,9 @@
+/* Sección Videos */
+.rounded-4 {
+    border-radius: 20px !important;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+}

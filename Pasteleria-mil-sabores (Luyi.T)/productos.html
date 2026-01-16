@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos de Pasteleria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap">
     <link rel="stylesheet" href="css/estilo-productos.css">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilo-productos.css">
 </head>
 
 <body class="bg-crema">
-   <header>
+    <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="img/logo.png" alt="Logo Mil Sabores" width="50" class="me-2">
+                    <img src="img/logo.jpg" alt="Logo Mil Sabores" class="me-2">
                     <h1 class="titulo-brand mb-0">Mil Sabores</h1>
                 </a>
 
@@ -27,11 +27,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="blogs.html">Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="contacto.html">Contacto</a></li>
                     </ul>
 
                     <div class="d-flex align-items-center user-menu">
@@ -48,12 +48,34 @@
         </nav>
     </header>
 
-    <main class="container">
-        <section class="productos-header">
-            <h2>Catálogo de Especialidades</h2>
+    <section class="info-relleno">
+        <div class="row">
+            <div class="beneficio-card">
+                <span class="icono-grande">🎂</span>
+                <h4 class="titulo-brand">Calidad Premium</h4>
+                <p class="small">Ingredientes 100% naturales en cada especialidad.</p>
+            </div>
+
+            <div class="beneficio-card">
+                <span class="icono-grande">🚚</span>
+                <h4 class="titulo-brand">Envío a Domicilio</h4>
+                <p class="small">Llevamos dulzura a tu puerta en toda la región.</p>
+            </div>
+
+            <div class="beneficio-card">
+                <span class="icono-grande">⏳</span>
+                <h4 class="titulo-brand">50 Años de Tradición</h4>
+                <p class="small">Medio siglo endulzando tus mejores momentos.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container-principal">
+        <section class="product-header">
+            <h2 class="titulo-artistico text-center mb-5">Catálogo de Especialidades</h2>
         </section>
 
-        <section class="filtros">
+        <section class="filtros mb-4 text-center">
             <label for="filtro-categoria">Filtrar por categoría:</label>
             <select id="filtro-categoria" onchange="filtrarProductos()">
                 <option value="todos">Todas las categorías</option>
@@ -87,7 +109,7 @@
 
     <script src="js/productos.js"></script>
     <script src="js/region-comunas.js"></script>
-    <script src="js/registro.js"></script>                 
+    <script src="js/registro.js"></script>
 </body>
 
 </html>

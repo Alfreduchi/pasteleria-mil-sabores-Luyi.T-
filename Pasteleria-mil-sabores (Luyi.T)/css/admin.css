@@ -1,0 +1,28 @@
+/* Pestañas de Navegación del Panel */
+.nav-tabs .nav-link {
+    color: #8B4513;
+    border: 2px solid transparent;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-tabs .nav-link.active {
+    color: #8B4513;
+    background-color: #FFF5E1;
+    border-color: #FFC0CB #FFC0CB #FFF5E1;
+}
+
+/* Tablas Administrativas */
+.table-chocolate {
+    background-color: #8B4513 !important;
+    color: #ffffff !important;
+}
+
+/* Previsualización de Imágenes en Tabla */
+.img-admin-preview {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid #FFC0CB;
+}

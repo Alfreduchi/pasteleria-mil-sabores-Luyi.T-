@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasteleria Mil Sabores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/estilo-productos.css">
+    <link rel="stylesheet" href="video.css">
 </head>
 </head>
 
@@ -17,7 +19,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="img/logo.jpg" alt="Logo Mil Sabores" width="900" class="me-2">
+                    <img src="img/logo.jpg" alt="Logo Mil Sabores" class="me-2">
                     <h1 class="titulo-brand mb-0">Pasteleria Mil Sabores</h1>
                 </a>
 
@@ -27,11 +29,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="blogs.html">Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link nav-principal" href="contacto.html">Contacto</a></li>
                     </ul>
 
                     <div class="d-flex align-items-center user-menu">
@@ -49,45 +51,143 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>TIENDA ONLINE</h2>
-                <p>Ofrecemos una experiencia dulce y memorable con productos de alta calidad.</p>
-                <a href="productos.html" class="btn-chocolate">Ver productos</a>
-            </div>
-            <div class="hero-image">
-                <img src="img/hero-pasteleria.jpg" alt="Nuestras Tortas">
+        <section class="container-principal my-5">
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="titulo-brand display-3">TIENDA ONLINE</h1>
+                    <p class="lead mb-4">
+                        Ofrecemos una experiencia dulce y memorable con productos de alta calidad,
+                        manteniendo nuestra tradición por más de **50 años**.
+                    </p>
+                    <a href="productos.html" class="btn-chocolate px-5 py-3 fs-5 text-decoration-none shadow">
+                        Ver productos
+                    </a>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg rounded-5 overflow-hidden position-relative">
+                        <div class="position-absolute top-0 start-0 m-3">
+                            <span class="badge bg-chocolate p-2 px-3 shadow text-white fw-bold">
+                                ⭐ Especialidad del Mes
+                            </span>
+                        </div>
+
+                        <div class="row g-0">
+                            <div class="col-sm-5">
+                                <img src="img/pi001.jpg" class="img-fluid h-100 object-fit-cover" alt="Torta Destacada"
+                                    style="min-height: 250px;">
+                            </div>
+                            <div class="col-sm-7 bg-crema-suave p-4 d-flex flex-column justify-content-center">
+                                <h3 class="titulo-artistico h2 mb-2">Mousse de Chocolate</h3>
+                                <p class="small text-muted mb-3">
+                                    Postre individual cremoso y suave, hecho con chocolate de alta calidad.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <span class="fw-bold text-chocolate fs-4">$5.000</span>
+                                    <a href="productos.html" class="btn btn-outline-chocolate btn-sm rounded-pill">Lo
+                                        quiero</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section class="featured-products">
-            <h1>Nuestras Especialidades</h1>
-            <div id="lista-productos" class="product-grid">
+        <section class="container my-5 py-5 text-center">
+            <h2 class="titulo-artistico mb-2">El Arte de Nuestra Pastelería</h2>
+            <p class="text-muted mb-5">Descubre la dedicación detrás de cada una de nuestras dulces creaciones.</p>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=2ZE_YNLmK_I" target="_blank">
+                            <img src="https://img.youtube.com/vi/2ZE_YNLmK_I/maxresdefault.jpg"
+                                class="img-fluid rounded-3 shadow" alt="Decoración">
+                        </a>
+                        <h5 class="mt-3 text-chocolate">Técnicas de Decoración</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=VuaNrEDY1T4" target="_blank">
+                            <img src="https://img.youtube.com/vi/VuaNrEDY1T4/maxresdefault.jpg"
+                                class="img-fluid rounded-3 shadow" alt="Acabado">
+                        </a>
+                        <h5 class="mt-3 text-chocolate">El Acabado Perfecto</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="video-card">
+                        <a href="https://www.youtube.com/watch?v=NHXur9Fg1QQ" target="_blank">
+                            <img src="https://img.youtube.com/vi/NHXur9Fg1QQ/maxresdefault.jpg"
+                                class="img-fluid rounded-3 shadow" alt="Maestría">
+                        </a>
+                        <h5 class="mt-3 text-chocolate">Maestría en Repostería</h5>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-info">
-                <h4>Pastelería Mil Sabores</h4>
-                <p>50 años siendo un referente en la repostería chilena. [cite: 8]</p>
+    <footer class="bg-chocolate text-white py-5 mt-5">
+    <div class="container">
+        <div class="row g-4 text-center text-md-start">
+            <div class="col-md-4">
+                <h3 class="titulo-artistico text-white mb-3">Mil Sabores</h3>
+                <p class="small">Endulzando la vida de nuestra comunidad por más de **50 años** con recetas que pasan de generación en generación.</p>
+                <div class="social-links mt-3">
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-whatsapp fa-lg"></i></a>
+                </div>
             </div>
-            <div class="footer-categories">
-                <h4>Categorías</h4>
-                <ul>
-                    <li>Tortas Cuadradas</li>
-                    <li>Tortas Circulares</li>
-                    <li>Sin Azúcar</li>
+
+            <div class="col-md-4">
+                <h5 class="fw-bold mb-3 border-bottom border-secondary pb-2">Datos de Contacto</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2 text-rosa"></i> 
+                        Encuéntranos en nuestra casa matriz.
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-phone me-2 text-rosa"></i> 
+                        +56 9 1234 5678
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-envelope me-2 text-rosa"></i> 
+                        contacto@milsabores.cl
+                    </li>
                 </ul>
             </div>
-            <div class="newsletter">
-                <h4>Stay In Touch</h4>
-                <input type="email" placeholder="Enter Email">
-                <button>Subscribe</button>
+
+            <div class="col-md-4">
+                <h5 class="fw-bold mb-3 border-bottom border-secondary pb-2">Nuestra Ubicación</h5>
+                <div class="rounded-4 overflow-hidden shadow-lg border border-2 border-white">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.089036516703!2d-70.66055162430922!3d-33.44698677339089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c507f91be917%3A0xcfac72a68dd4b986!2sDuoc%20UC%20-%20Sede%20Padre%20Alonso%20de%20Ovalle!5e0!3m2!1ses!2scl!4v1768565425835!5m2!1ses!2scl" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </div>
-    </footer>
+        
+        <hr class="mt-5 opacity-25">
+        <div class="text-center pt-2">
+            <p class="small mb-0 opacity-75">© 2024 Pastelería Mil Sabores - 50 años de tradición artesanal.</p>
+        </div>
+    </div>
+</footer>
+
 
     <script src="js/productos.js"></script>
 

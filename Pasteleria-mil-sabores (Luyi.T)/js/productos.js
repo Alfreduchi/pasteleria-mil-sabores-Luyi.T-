@@ -1,4 +1,4 @@
-const productos = [
+const productos = JSON.parse(localStorage.getItem('productos')) || [
     {
         codigo: "TC001",
         categoria: "Tortas Cuadradas",
@@ -129,76 +129,100 @@ const productos = [
     }
 ];
 
-function renderizarProductos() {
+function renderizarProductos(productosFiltrados) {
+    // 1. Declaramos la variable dentro de la función (Soluciona el error de la línea 136)
     const contenedor = document.getElementById('lista-productos');
-    if (!contenedor) return;
+    
+    // 2. Verificación de seguridad
+    if (!contenedor) {
+        console.error("Error: No se encontró el elemento con ID 'lista-productos' en el HTML.");
+        return;
+    }
 
-    contenedor.innerHTML = "";
+    contenedor.innerHTML = ''; 
 
-    // 1. Obtener todas las categorías únicas del arreglo de productos
-    const categorias = [...new Set(productos.map(p => p.categoria))];
+    if (productosFiltrados.length === 0) {
+        contenedor.innerHTML = '<p class="text-center w-100 my-5">No se encontraron productos.</p>';
+        return;
+    }
 
-    // 2. Recorrer cada categoría para crear su sección
-    categorias.forEach(categoria => {
-        // Crear el título de la categoría
-        const seccion = document.createElement('section');
-        seccion.className = 'categoria-section';
-        seccion.innerHTML = `<h3 class="titulo-categoria">${categoria}</h3>`;
+    const categorias = [...new Set(productosFiltrados.map(p => p.categoria))];
+
+    categorias.forEach(cat => {
+        const h3 = document.createElement('h3');
+        h3.className = 'titulo-categoria';
+        h3.innerText = cat;
+        contenedor.appendChild(h3);
 
         const grid = document.createElement('div');
-        grid.className = 'product-grid';
+        grid.className = 'productos-grid';
 
-        // 3. Filtrar productos que pertenecen a esta categoría
-        const productosFiltrados = productos.filter(p => p.categoria === categoria);
+        const productosDeCat = productosFiltrados.filter(p => p.categoria === cat);
 
-        productosFiltrados.forEach(p => {
-            const tarjeta = document.createElement('div');
-            tarjeta.className = 'product-card';
-            tarjeta.innerHTML = `
+        productosDeCat.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+
+            // Usamos prod.codigo o prod.id según como lo tengas en tu JSON
+            const idProducto = prod.codigo || prod.id;
+
+            card.innerHTML = `
                 <div class="product-image-container">
-                    <img src="${p.imagen}" alt="${p.nombre}">
+                    <img src="${prod.imagen}" alt="${prod.nombre}">
                 </div>
                 <div class="product-info">
-                    <h4>${p.nombre}</h4>
-                    <p class="descripcion-corta">${p.descripcion}</p>
-                    <p class="precio">$${p.precio.toLocaleString('es-CL')}</p>
-                    <button class="btn-chocolate" onclick="agregarAlCarrito('${p.codigo}')">
+                    <h4>${prod.nombre}</h4>
+                    <p class="descripcion-corta">${prod.descripcion.substring(0, 50)}...</p>
+                    <span class="precio">$${prod.precio.toLocaleString()}</span>
+                    
+                    <a href="detalle.html?id=${idProducto}" class="btn-detalles">
+                        Ver Detalles
+                    </a>
+                    
+                    <button class="btn-chocolate" onclick="agregarAlCarrito('${idProducto}')">
                         Añadir al carrito
                     </button>
                 </div>
             `;
-            grid.appendChild(tarjeta);
+            grid.appendChild(card);
         });
 
-        seccion.appendChild(grid);
-        contenedor.appendChild(seccion);
+        contenedor.appendChild(grid);
     });
 }
 
 // 1. Función para agregar productos al carrito (Requisito: JS y LocalStorage)
 function agregarAlCarrito(codigo) {
-    // Buscamos el producto en nuestro arreglo
     const producto = productos.find(p => p.codigo === codigo);
-    
-    // Obtenemos el carrito actual de LocalStorage o creamos uno vacío
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    
-    // Añadimos el producto al arreglo del carrito
-    carrito.push(producto);
-    
-    // Guardamos de nuevo en LocalStorage (Requisito: cite 555)
+
+    // Buscamos si el producto ya está en el carrito
+    const existe = carrito.find(item => item.codigo === codigo);
+
+    if (existe) {
+        // Si ya existe, solo aumentamos la cantidad
+        existe.cantidad++;
+    } else {
+        // Si es nuevo, lo agregamos con cantidad 1
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+
+    // Guardamos en LocalStorage (Requisito: cite 555)
     localStorage.setItem('carrito', JSON.stringify(carrito));
     
-    alert(`¡${producto.nombre} añadido al carrito!`);
+    alert(`¡${producto.nombre} añadido al pedido!`);
     actualizarContadorCarrito();
 }
 
 // 2. Función para actualizar el número en el icono del carrito
 function actualizarContadorCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    // Sumamos todas las cantidades de los productos
+    const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    
     const contador = document.getElementById('cart-count');
     if (contador) {
-        contador.innerText = `🛒 Cart (${carrito.length})`;
+        contador.innerText = `🛒 Cart (${totalItems})`;
     }
 }
 
@@ -251,3 +275,67 @@ function filtrarProductos() {
         contenedor.appendChild(seccion);
     }
 }
+
+// Busca donde generas el HTML de la tarjeta y modifícalo así:
+function mostrarProductos(productosFiltrados) {
+    // Definimos la variable 'contenedor' que faltaba
+    const contenedor = document.getElementById('lista-productos');
+    
+    // Limpiamos el contenido previo
+    contenedor.innerHTML = ''; 
+
+    if (productosFiltrados.length === 0) {
+        contenedor.innerHTML = '<p class="text-center w-100 my-5">No se encontraron productos.</p>';
+        return;
+    }
+
+    // Obtenemos categorías únicas
+    const categorias = [...new Set(productosFiltrados.map(p => p.categoria))];
+
+    categorias.forEach(cat => {
+        // Título de categoría
+        const h3 = document.createElement('h3');
+        h3.className = 'titulo-categoria';
+        h3.innerText = cat;
+        contenedor.appendChild(h3);
+
+        // Grid de productos
+        const grid = document.createElement('div');
+        grid.className = 'productos-grid';
+
+        const productosDeCat = productosFiltrados.filter(p => p.categoria === cat);
+
+        productosDeCat.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+
+            // El botón 'Ver Detalles' ahora está aquí con la ruta correcta
+            card.innerHTML = `
+                <div class="product-image-container">
+                    <img src="${prod.imagen}" alt="${prod.nombre}">
+                </div>
+                <div class="product-info">
+                    <h4>${prod.nombre}</h4>
+                    <p class="descripcion-corta">${prod.descripcion.substring(0, 50)}...</p>
+                    <span class="precio">$${prod.precio.toLocaleString()}</span>
+                    
+                    <a href="detalle.html?id=${prod.codigo}" class="btn-detalles">
+                        Ver Detalles
+                    </a>
+                    
+                    <button class="btn-chocolate" onclick="agregarAlCarrito('${prod.codigo}')">
+                        Añadir al carrito
+                    </button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        contenedor.appendChild(grid);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Esto espera a que el HTML esté listo antes de ejecutar la función
+    renderizarProductos(productos); 
+});

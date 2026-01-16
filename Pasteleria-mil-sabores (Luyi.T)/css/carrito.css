@@ -1,0 +1,57 @@
+.carrito-contenedor {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #FFC0CB;
+    margin-bottom: 50px;
+}
+
+.table thead {
+    background-color: #8B4513;
+    color: #FFF5E1;
+}
+
+.resumen-compra {
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #FFC0CB;
+}
+
+/* Controles de Cantidad */
+.cantidad-controles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-cantidad {
+    background-color: #FFC0CB;
+    border: 1px solid #8B4513;
+    color: #8B4513;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cantidad:hover {
+    background-color: #8B4513;
+    color: #FFF5E1;
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.btn-eliminar:hover {
+    transform: scale(1.2);
+    color: #dc3545;
+}

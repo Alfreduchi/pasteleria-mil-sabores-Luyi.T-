@@ -1,56 +1,94 @@
-/* Importación de fuentes (Lato y Pacifico) */
+/* =========================================
+   1. IMPORTACIONES Y VARIABLES (ROOT)
+   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
 
-/* Configuración General */
+:root {
+    --crema-fondo: #FFF5E1;     /* Fondo cálido */
+    --chocolate-oscuro: #3d1c02; 
+    --chocolate-medio: #8B4513;
+    --rosa-suave: #FFC0CB;
+    --rosa-pastel: #FFD1DC;
+    --blanco-hueso: #fffaf2;
+}
+
+/* =========================================
+   2. CONFIGURACIÓN GENERAL
+   ========================================= */
 body {
-    background-color: #FFF5E1; /* Crema Pastel: ambiente cálido [cite: 71] */
-    color: #5D4037;            /* Marrón Oscuro: texto principal con contraste  */
-    font-family: 'Lato', sans-serif; /* Fuente moderna para texto general [cite: 76] */
+    background-color: var(--crema-fondo);
+    color: #5D4037;
+    font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
-/* Encabezados */
-h1, h2, h3, .logo h1 {
-    font-family: 'Pacifico', cursive; /* Toque artístico para títulos  */
-    color: #8B4513;                  /* Chocolate para resaltar  */
+h1, h2, h3, h4, .titulo-artistico {
+    font-family: 'Pacifico', cursive;
+    color: var(--chocolate-medio);
 }
 
-/* Navegación */
+.text-chocolate {
+    color: var(--chocolate-medio);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* =========================================
+   3. NAVEGACIÓN (NAVBAR)
+   ========================================= */
 .navbar {
-    background-color: #FFC0CB; /* Fondo Crema Pastel oficial  */
-    border-bottom: 2px solid #FFF5E1; /* Línea inferior Rosa Suave  */
+    background-color: var(--rosa-suave);
+    border-bottom: 2px solid var(--crema-fondo);
     padding: 1rem 0;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.navbar .container {
+    position: relative;
+    height: 80px;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #5D4037;
-    font-weight: bold;
-    transition: color 0.3s;
+/* Logo con efecto sobresaliente */
+.navbar-brand img {
+    position: absolute;
+    top: -40px;
+    left: -45px;
+    width: 215px;
+    height: auto;
+    z-index: 10;
 }
 
-.nav-links a:hover {
-    color: #FFC0CB; /* Rosa Suave al pasar el mouse  */
+.titulo-brand {
+    margin-left: 130px;
+    font-family: 'Pacifico', cursive;
 }
 
-/* Sección Hero (Bienvenida) */
+/* Enlaces de navegación resaltados */
+.nav-principal {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: var(--chocolate-oscuro) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 15px !important;
+    transition: 0.3s ease;
+}
+
+.nav-principal:hover {
+    color: #ffffff !important;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   4. SECCIÓN HERO Y CONTENIDO PRINCIPAL
+   ========================================= */
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 60px 50px;
-    background-color: #FFF5E1; /* Consistente con el fondo principal [cite: 71] */
-}
-
-.hero-content {
-    max-width: 500px;
+    background-color: var(--crema-fondo);
 }
 
 .hero-content h2 {
@@ -60,43 +98,63 @@ h1, h2, h3, .logo h1 {
 .hero-image img {
     max-width: 400px;
     border-radius: 15px;
-    box-shadow: 10px 10px 0px #FFC0CB; /* Sombra Rosa Suave decorativa */
+    box-shadow: 10px 10px 0px var(--rosa-suave);
 }
 
-/* Botones */
+/* Especialidad del Mes / Tarjetas */
+.bg-crema-suave {
+    background-color: var(--blanco-hueso);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* =========================================
+   5. BOTONES Y COMPONENTES
+   ========================================= */
 .btn-chocolate {
     display: inline-block;
-    background-color: #8B4513; /* Color Chocolate  */
-    color: #FFF5E1;
+    background-color: var(--chocolate-medio);
+    color: var(--crema-fondo);
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 25px;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: 0.3s;
+    border: none;
 }
 
 .btn-chocolate:hover {
-    background-color: #FFC0CB; /* Cambia a Rosa Suave  */
-    color: #5D4037;
+    background-color: var(--rosa-suave);
+    color: var(--chocolate-oscuro);
 }
 
-/* Grid de Productos */
-.featured-products {
-    padding: 50px;
-    text-align: center;
+.btn-outline-chocolate {
+    color: var(--chocolate-medio);
+    border: 2px solid var(--chocolate-medio);
+    border-radius: 25px;
+    padding: 5px 20px;
+    transition: 0.3s;
+    text-decoration: none;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+.btn-outline-chocolate:hover {
+    background-color: var(--chocolate-medio);
+    color: white;
 }
 
-/* Footer */
+/* =========================================
+   6. FOOTER Y CIERRE
+   ========================================= */
 footer {
-    background-color: #5D4037; /* Marrón Oscuro para el fondo del pie  */
-    color: #B0BEC5;            /* Gris Claro para texto secundario [cite: 86] */
+    background-color: #5D4037;
+    color: #B0BEC5;
     padding: 40px 50px;
     margin-top: 50px;
 }
@@ -109,33 +167,5 @@ footer {
 }
 
 footer h4 {
-    color: #FFC0CB; /* Títulos del footer en Rosa Suave  */
-    font-family: 'Pacifico', cursive;
-}
-
-.text-chocolate {
-    color: #8B4513; /* Color chocolate oficial */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.text-chocolate:hover {
-    color: #FFC0CB; /* Rosa Suave */
-}
-.navbar .container {
-    position: relative; /* Crea un marco de referencia */
-    height: 80px;       /* Define una altura fija para la barra */
-}
-
-.navbar-brand img {
-    position: absolute; /* El logo se mueve independiente de la barra */
-    top: -40px;           /* Ajusta la distancia desde arriba */
-    left: -45px;
-    width: 215px;       /* Aquí puedes poner el tamaño que quieras */
-    height: auto;
-    z-index: 10;        /* Asegura que el logo quede por encima de todo */
-}
-
-.titulo-brand {
-    margin-left: 130px; /* Empuja el texto para que no lo tape el logo grande */
+    color: var(--rosa-suave);
 }

@@ -1,21 +1,19 @@
-/* Ajustes para la sección de Blogs */
+/* Tarjetas de Blog */
 .card {
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
     border-radius: 15px;
+    border: 1px solid #FFC0CB;
 }
 
 .card:hover {
     transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
 }
 
 .bg-white {
     background-color: #ffffff !important;
 }
 
-.order-md-1 {
-    order: 1;
-}
-
-.order-md-2 {
-    order: 2;
-}
+/* Utilidades de orden para diseño responsivo */
+.order-md-1 { order: 1; }
+.order-md-2 { order: 2; }

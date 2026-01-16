@@ -1,36 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('login-form');
+    const formLogin = document.getElementById('login-form');
 
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    if (formLogin) {
+        formLogin.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        const correo = document.getElementById('login-correo').value.trim();
-        const pass = document.getElementById('login-pass').value;
+            const correo = document.getElementById('login-correo').value.trim().toLowerCase();
+            const pass = document.getElementById('login-pass').value.trim();
 
-        // 1. Validaciones de Correo (cite: 527-530)
-        if (correo.length > 100) {
-            alert("El correo no puede exceder los 100 caracteres.");
-            return;
-        }
+            // 1. Definición de dominios permitidos según requerimiento
+            const dominiosPermitidos = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
+            
+            // 2. Verificación de si el correo termina con alguno de los dominios autorizados
+            const esDominioValido = dominiosPermitidos.some(dominio => correo.endsWith(dominio));
 
-        const dominiosValidos = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
-        const esDominioValido = dominiosValidos.some(d => correo.toLowerCase().endsWith(d));
+            if (!esDominioValido) {
+                // Si el dominio no es válido, se bloquea el acceso inmediatamente
+                alert("Acceso denegado. Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com.");
+                return;
+            }
 
-        if (!esDominioValido) {
-            alert("Acceso denegado. Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com.");
-            return;
-        }
-
-        // 2. Validaciones de Contraseña (cite: 531-533)
-        if (pass.length < 4 || pass.length > 10) {
-            alert("La contraseña debe tener entre 4 y 10 caracteres.");
-            return;
-        }
-
-        // 3. Simulación de inicio de sesión exitoso
-        alert("¡Bienvenido a Pastelería Mil Sabores!");
-        
-        // Redirección opcional según requerimientos
-        window.location.href = "index.html"; 
-    });
+            // 3. Lógica para validar credenciales (aquí buscarías en tu base de datos o LocalStorage)
+            // Por ahora, solo mostramos que pasó la validación de dominio
+            alert("Dominio válido. Procesando inicio de sesión...");
+        });
+    }
 });

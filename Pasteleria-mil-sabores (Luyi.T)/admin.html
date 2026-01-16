@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <main class="container-principal">
+        <section class="productos-header">
+            <h2 class="titulo-brand">Panel de Control Administrativo</h2>
+        </section>
+
+        <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+            <li class="nav-item">
+                <button class="nav-link active" id="productos-tab" data-bs-toggle="tab"
+                    data-bs-target="#gestion-productos" type="button" role="tab">
+                    📦 Gestión de Productos
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="usuarios-tab" data-bs-toggle="tab" 
+                    data-bs-target="#gestion-usuarios" type="button" role="tab">
+                    👥 Gestión de Usuarios
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="adminTabsContent">
+            
+            <div class="tab-pane fade show active" id="gestion-productos" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-light rounded shadow-sm">
+                    <div>
+                        <h3 class="titulo-brand m-0">Catálogo de Especialidades</h3>
+                        <small class="text-muted">Gestiona tus productos para la venta</small>
+                    </div>
+                    <button class="btn-chocolate" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                        onclick="limpiarFormulario()">
+                        <i class="fas fa-plus"></i> + Nuevo Producto
+                    </button>
+                </div>
+
+                <div id="tabla-productos-container" class="table-responsive">
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="gestion-usuarios" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-light rounded shadow-sm">
+                    <div>
+                        <h3 class="titulo-brand m-0">Registro de Usuarios</h3>
+                        <small class="text-muted">Administra los accesos y perfiles del sistema</small>
+                    </div>
+                    <button class="btn-chocolate" data-bs-toggle="modal" data-bs-target="#modalUsuario" 
+                        onclick="limpiarFormularioUsuario()">
+                        <i class="fas fa-user-plus"></i> + Nuevo Usuario
+                    </button>
+                </div>
+
+                <div id="tabla-usuarios-container" class="table-responsive">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-chocolate text-white">
+                        <h5 class="modal-title" id="modalTitulo">Registrar Producto</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-producto">
+                            <input type="hidden" id="admin-index">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label">Código</label>
+                                    <input type="text" id="admin-codigo" class="form-control" required>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label">Nombre del Pastel</label>
+                                    <input type="text" id="admin-nombre" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Categoría</label>
+                                    <select id="admin-categoria" class="form-select">
+                                        <option value="" disabled selected>Seleccione una categoría...</option>
+                                        <option value="Tortas Cuadradas">Tortas Cuadradas</option>
+                                        <option value="Tortas Circulares">Tortas Circulares</option>
+                                        <option value="Productos Sin Azucar">Productos Sin Azucar</option>
+                                        <option value="Postres Individuales">Postres Individuales</option>
+                                        <option value="Pasteleria Tradicional">Pasteleria Tradicional</option>
+                                        <option value="Productos Sin Glutenr">Productos Sin Gluten</option>
+                                        <option value="Productos Veganos">Productos Veganos</option>
+                                        <option value="Productos Especiales">Productos Especiales</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Precio ($)</label>
+                                    <input type="number" id="admin-precio" class="form-control" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Descripción</label>
+                                    <textarea id="admin-descripcion" class="form-control" rows="2"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">URL de la Imagen</label>
+                                    <input type="text" id="admin-imagen" class="form-control"
+                                        placeholder="img/productos/pastel.jpg">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" form="form-producto" class="btn-chocolate">Guardar Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalUsuario" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-chocolate text-white">
+                        <h5 class="modal-title" id="modalUsuarioTitulo">Registrar Usuario</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-usuario">
+                            <input type="hidden" id="admin-user-index" value="-1">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre Completo</label>
+                                <input type="text" id="user-nombre" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Correo Electrónico</label>
+                                <input type="email" id="user-correo" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Rol del Usuario</label>
+                                <select id="user-rol" class="form-select">
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Vendedor">Vendedor</option>
+                                    <option value="Cliente VIP">Cliente VIP</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" form="form-usuario" class="btn-chocolate">Guardar Usuario</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
